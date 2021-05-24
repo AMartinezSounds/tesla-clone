@@ -1,20 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Section() {
+function Section({title, description, leftBtnTxt, rightBtnTxt}) {
     return (
         <Wrap>
             <ItemText>
-                <h1>Model S</h1>
-                <p>Order Online for Touchless Delivery</p>
+                <h1>{title}</h1>
+                <p>{description}</p>
             </ItemText>
             <Buttons>
                 <ButtonGroup>
                     <LeftButton>
-                        Custom Order
+                        {leftBtnTxt}
                     </LeftButton>
                     <RightButton>
-                        Existing Inventory
+                        {rightBtnTxt}
                     </RightButton>
                 </ButtonGroup>
                 <DownArrow src="images/down-arrow.svg" />
@@ -51,6 +51,9 @@ const Buttons = styled.div`
 const ButtonGroup = styled.div`
     display: flex;
     margin-bottom: 30px;
+    @media (max-width: 768px){
+        flex-direction: column;
+    }
 `;
 
 const LeftButton = styled.div`
